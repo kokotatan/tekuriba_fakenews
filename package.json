@@ -4,8 +4,9 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "http-server -p 3000 -o yahoo.html",
-    "dev": "http-server -p 3000 -o yahoo.html -c-1",
+    "start": "http-server -p 3000 -o yahoo.html -c-1 --cors",
+    "dev": "browser-sync start --server --files '*.html' --port 3000 --open",
+    "live": "cross-env CHOKIDAR_USEPOLLING=1 CHOKIDAR_INTERVAL=200 browser-sync start --server --files '*.html' --port 3000 --open",
     "build": "echo \"Build completed\""
   },
   "repository": {
@@ -21,6 +22,9 @@
   "homepage": "https://github.com/kokotatan/tekuriba_fakenews#readme",
   "description": "",
   "devDependencies": {
-    "http-server": "^14.1.1"
+    "browser-sync": "^3.0.4",
+    "cross-env": "^10.0.0",
+    "http-server": "^14.1.1",
+    "live-server": "^1.2.2"
   }
 }
